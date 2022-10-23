@@ -6,9 +6,8 @@ export const GifApp = () => {
   const [categories, setCategories] = useState(['D&D', 'Fall', 'Neon City']);
 
 
-  const onAddCategory = () => {
-    setCategories(['Cyberpunk', ...categories])
-    // setCategories(cat => [...cat, 'Cyberpunk']);
+  const onAddCategory = (newCategory) => {
+    setCategories([newCategory, ...categories])
   }
 
   return (
@@ -17,7 +16,7 @@ export const GifApp = () => {
       <h1>GifApp</h1>
 
       {/* Input */}
-      <AddCategory setCategories={ setCategories }/>
+      <AddCategory onNewCategory={ onAddCategory }/>
 
       {/* Listo de Gif */}
       <ol>
