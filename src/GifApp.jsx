@@ -1,32 +1,32 @@
 import { useState } from "react"
-import { AddCategory } from './components/AddCategory';
+import { AddCategory, GifGrid } from './components';
 
 export const GifApp = () => {
 
-  const [categories, setCategories] = useState(['D&D', 'Fall', 'Neon City']);
+  const [categories, setCategories] = useState(['DnD', 'Fall', 'Neon City']);
 
 
   const onAddCategory = (newCategory) => {
+
+    if(categories.includes(newCategory)) return
+
     setCategories([newCategory, ...categories])
   }
 
   return (
     <>
-      {/* Titulo */}
       <h1>GifApp</h1>
 
-      {/* Input */}
       <AddCategory onNewCategory={ onAddCategory }/>
 
-      {/* Listo de Gif */}
-      <ol>
-        {
-          categories.map(category => {
-            return <li key={ category }>{category}</li>
-          })
-        }
-      </ol>
-        {/* Gif Item */}
+      {
+        categories.map(category => (
+          <GifGrid
+            key={ category }
+            category={ category }/>
+        ))
+      }
+
     </>
   )
 }

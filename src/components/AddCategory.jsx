@@ -8,7 +8,6 @@ export const AddCategory = ({ onNewCategory }) => {
 
   const onInputChange = ({target}) => {
     setInputValue(target.value)
-    console.log(target.value)
   }
 
   const onSubmit = (e) => {
@@ -24,7 +23,7 @@ export const AddCategory = ({ onNewCategory }) => {
     <form onSubmit={ onSubmit }>
       <input 
         type="text" 
-        placeholder="Search Gif"
+        placeholder="Search gif"
         value={inputValue}
         onChange={ onInputChange }
       />
